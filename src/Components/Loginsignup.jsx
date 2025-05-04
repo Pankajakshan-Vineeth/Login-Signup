@@ -13,10 +13,15 @@ const Loginsignup = () => {
         <div className="underline"></div>
       </div>
       <div className="inputs">
-        <div className="input">
-          <img src={user_icon} alt="User Icon" />
-          <input type="text" placeholder="Name" />
-        </div>
+        {action === "Login" ? (
+          <div></div>
+        ) : (
+          <div className="input">
+            <img src={user_icon} alt="User Icon" />
+            <input type="text" placeholder="Name" />
+          </div>
+        )}
+
         <div className="input">
           <img src={email_icon} alt="Email Icon" />
           <input type="email" placeholder="Email" />
@@ -26,20 +31,34 @@ const Loginsignup = () => {
           <input type="password" placeholder="Password" />
         </div>
       </div>
-      <div className="forgot-password">
-        Forgot Passwordspan<span>Click Here</span>
-      </div>
+      {action === "Sign Up" ? (
+        <div></div>
+      ) : (
+        <div className="forgot-password">
+          Forgot Password? <span>Click Here</span>
+        </div>
+      )}
+
       <div className="submit-container">
-        
-        <div onClick = {()=>{setAction('Login')}}className={action === "Login" ? "submit gray" : "submit"}>
+        <div
+          onClick={() => {
+            setAction("Login");
+          }}
+          className={action === "Login" ? "submit gray" : "submit"}
+        >
           Login
         </div>
-        <div onClick = {()=>{setAction('Sign Up')}}className={action === "Sign Up" ? "submit gray" : "submit"}>
+        <div
+          onClick={() => {
+            setAction("Sign Up");
+          }}
+          className={action === "Sign Up" ? "submit gray" : "submit"}
+        >
           Sign Up
         </div>
       </div>
     </div>
   );
 };
-``
+``;
 export default Loginsignup;
